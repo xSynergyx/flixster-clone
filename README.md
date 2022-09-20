@@ -24,7 +24,7 @@ Flixster is an app that allows users to browse movies from the [The Movie Databa
 ### App Walkthough GIF
 
 <img src="https://github.com/xSynergyx/flixster-clone/blob/master/FlixsterPortrait.gif" width=250><br>
-<img src="https://github.com/xSynergyx/flixster-clone/blob/master/FlixsterLandscape.gif" width=250><br>
+<img src="https://github.com/xSynergyx/flixster-clone/blob/master/FlixsterLandscape.gif" width=750><br>
 
 ### Notes
 I initially believed that I had to check for orientation in the object itself so I could set the image accordingly (backdrop for landscape, poster for portrait). I then realized that I can set it from the MovieAdapter class
