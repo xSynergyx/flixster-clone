@@ -15,6 +15,18 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
+    <ImageView
+        android:id="@+id/play_overlay"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
+        android:elevation="1dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_poster"
+        app:layout_constraintEnd_toEndOf="@+id/iv_poster"
+        app:layout_constraintStart_toStartOf="@+id/iv_poster"
+        app:layout_constraintTop_toTopOf="@+id/iv_poster"
+        app:srcCompat="@drawable/ic_play_overlay"
+        android:visibility="gone" />
+
     <TextView
         android:id="@+id/tv_title"
         style="@style/MovieText"

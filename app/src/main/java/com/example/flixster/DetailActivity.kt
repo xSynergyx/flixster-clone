@@ -39,6 +39,8 @@ class DetailActivity : YouTubeBaseActivity() {
         tvOverview.text = movie.overview
         ratingBar.rating = movie.voteAverage.toFloat()
 
+        var load: Boolean = movie.voteAverage > 7
+
         val client = AsyncHttpClient()
         client.get(TRAILERS_URL.format(movie.movieId), object: JsonHttpResponseHandler() {
             override fun onFailure(
@@ -59,13 +61,13 @@ class DetailActivity : YouTubeBaseActivity() {
                 }
                 val movieTrailerJson = results.getJSONObject(0)
                 val youtubeKey = movieTrailerJson.getString("key")
-                initializeYoutube(youtubeKey)
+                initializeYoutube(youtubeKey, load)
             }
 
         })
     }
 
-    private fun initializeYoutube(youtubeKey: String) {
+    private fun initializeYoutube(youtubeKey: String, load: Boolean) {
 
         ytPlayerView.initialize(YOUTUBE_API_KEY, object: YouTubePlayer.OnInitializedListener {
             override fun onInitializationSuccess(
@@ -74,7 +76,11 @@ class DetailActivity : YouTubeBaseActivity() {
                 p2: Boolean
             ) {
                 Log.i(TAG, "onInitializationSuccess")
-                player?.cueVideo(youtubeKey)
+                if (load) {
+                    player?.loadVideo(youtubeKey) // Load the video (play automatically) if video rating is high
+                } else {
+                    player?.cueVideo(youtubeKey) // Otherwise just have the video ready
+                }
             }
 
             override fun onInitializationFailure(
