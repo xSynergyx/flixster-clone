@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         rvMovies.adapter = movieAdapter
         rvMovies.layoutManager = LinearLayoutManager(this)
 
+        // Call The Movie DB API and load movies
         val client = AsyncHttpClient()
         client.get(NOW_PLAYING_URL, object: JsonHttpResponseHandler() {
             override fun onFailure(
