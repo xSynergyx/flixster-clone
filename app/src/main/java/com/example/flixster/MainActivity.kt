@@ -10,8 +10,10 @@ import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import okhttp3.Headers
 import org.json.JSONException
 
+const val API_KEY = BuildConfig.API_KEY
+
 private const val TAG ="MainActivity"
-private const val NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=04240126137c074c41f98fa14ebdce47"
+private const val NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=$API_KEY"
 
 class MainActivity : AppCompatActivity() {
 

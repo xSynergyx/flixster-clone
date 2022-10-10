@@ -22,6 +22,7 @@ data class Movie (
         fun fromJsonArray(movieJsonArray: JSONArray): List<Movie> {
             val movies = mutableListOf<Movie>()
 
+            // Load all movies from json into list
             for (i in 0 until movieJsonArray.length()){
                 val movieJson = movieJsonArray.getJSONObject(i)
                 movies.add(
